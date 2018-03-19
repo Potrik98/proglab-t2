@@ -10,6 +10,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.BiConsumer;
 
 /**
@@ -56,6 +57,12 @@ public class PLabSerial {
             portNames[i] = serialports[i].getDescriptivePortName();
         }
         return portNames;
+    }
+
+    public String getStatus() {
+        return !Objects.isNull(activePort) && activePort.isOpen()
+                ? "connection opened to " + activePort.getDescriptivePortName()
+                : "could not open connection";
     }
 
     /**

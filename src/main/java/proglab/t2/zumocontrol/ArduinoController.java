@@ -16,4 +16,8 @@ public class ArduinoController {
     public void sendMessage(String message) {
         serialConnection.sendMessage(message);
     }
+
+    public String getStatus() {
+        return serialConnection.getStatus();
+    }
 }
